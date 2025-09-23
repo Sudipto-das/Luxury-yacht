@@ -1,9 +1,19 @@
+import CommonHero from "../components/common/CommonHero"
+import YachtListingPage from "../components/yacth/yacthsList"
 
 
-function yachts() {
+function Yachts() {
+  const yachData = {
+    img:'./yatch.jpg',
+    title:'Explore Our Yacht Collection',
+    subtitle:'Discover our premium selection of luxury yachts available for charter in Greece and Cyprus'
+  }
   return (
-    <div>yachts</div>
+    <div>
+      <CommonHero {...yachData}/>
+      <YachtListingPage/>
+    </div>
   )
 }
 
-export default yachts
+export default Yachts

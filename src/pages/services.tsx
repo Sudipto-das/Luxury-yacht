@@ -1,7 +1,17 @@
+import CommonHero from "../components/common/CommonHero"
+import ServicesSection from "../components/services/serviceSection"
 
 
-export default function services() {
+export default function Services() {
+  const ServiceData = {
+    img: './our-service/ourservicehero.png',
+    title: 'Our Services',
+    subtitle: 'Discover the exceptional yacht experiences we offer in Greece and Cyprus.'
+  }
   return (
-    <div>services</div>
+    <>
+      <CommonHero {...ServiceData} />
+      <ServicesSection/>
+    </>
   )
 }
