@@ -3,9 +3,14 @@ import { MapPin, ChevronDown, Filter } from 'lucide-react';
 import Card from '../common/Card';
 
 function YachtListingPage() {
+    // @ts-ignore
     const [selectedLocation, setSelectedLocation] = useState('All Locations');
+    // @ts-ignore
     const [selectedYachtType, setSelectedYachtType] = useState('Yacht Type');
+    // @ts-ignore
     const [selectedPriceRange, setSelectedPriceRange] = useState('Price: Low to High');
+
+    
 
     const yachtsData = [
         {
@@ -124,7 +129,7 @@ function YachtListingPage() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {yachtsData.map((yacht, index) => (
+                        {yachtsData.map((yacht) => (
                             <Card cardData={yacht} />
                         ))}
                     </div>

@@ -9,7 +9,6 @@ import {
     Gauge,
     Ruler,
     Zap,
-    Wifi,
     MapPin,
     Waves,
     Table,
@@ -17,7 +16,7 @@ import {
     Eye,
     Bed,
     Bath,
-    CheckSquare,
+    
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
