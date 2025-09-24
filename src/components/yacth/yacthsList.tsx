@@ -9,7 +9,7 @@ function YachtListingPage() {
 
     const yachtsData = [
         {
-            img: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=400&h=300&fit=crop",
+            img: "./yatchs-list/yt1.jpg",
             title: "ATHENA",
             subtitle: "Luxury Motor Yacht",
             size: "75 ft",
@@ -19,7 +19,7 @@ function YachtListingPage() {
             price: 1200
         },
         {
-            img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=300&fit=crop",
+            img: "./yatchs-list/yt2.jpg",
             title: "POSEIDON",
             subtitle: "Sport Cruiser",
             size: "62 ft",
@@ -29,7 +29,7 @@ function YachtListingPage() {
             price: 900
         },
         {
-            img: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+            img: "./yatchs-list/yt3.jpg",
             title: "CALYPSO",
             subtitle: "Prestige Yacht",
             size: "85 ft",
@@ -39,7 +39,7 @@ function YachtListingPage() {
             price: 1500
         },
         {
-            img: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=400&h=300&fit=crop",
+            img: "./yatchs-list/yt4.jpg",
             title: "HELIOS",
             subtitle: "Mega Yacht",
             size: "110 ft",
@@ -49,7 +49,7 @@ function YachtListingPage() {
             price: 2200
         },
         {
-            img: "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=400&h=300&fit=crop",
+            img: "./yatchs-list/yt1.jpg",
             title: "NEPTUNE",
             subtitle: "Power Catamaran",
             size: "65 ft",
@@ -59,7 +59,7 @@ function YachtListingPage() {
             price: 1100
         },
         {
-            img: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=400&h=300&fit=crop",
+            img: "./yatchs-list/yt2.jpg",
             title: "ARTEMIS",
             subtitle: "Luxury Sailboat",
             size: "80 ft",
@@ -102,7 +102,7 @@ function YachtListingPage() {
 
                             {/* Price Range */}
                             <div className="relative flex gap-1 items-center">
-                            <span className="text-sm ">€</span>
+                            <img src="./icons/price.png" alt="" className='h-4 w-4'/>
                                 <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-sm text-gray-700 hover:border-gray-400 transition-colors">
                                     
                                     <span className="text-sm">{selectedPriceRange}</span>

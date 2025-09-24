@@ -8,6 +8,7 @@ import Yachts from './pages/yachts'
 import Services from './pages/services'
 import Contact from './pages/contact'
 import Yacht from './pages/yacht'
+import Checkout from './pages/checkout'
 function App() {
 
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/services" element={<Services/>} />
         <Route path="/contact-us" element={<Contact/>} />
         <Route path="/indivitual" element={<Yacht/>} />
+        <Route path="/checkout" element={<Checkout/>} />
       </Routes>
       <Footer />
     </>

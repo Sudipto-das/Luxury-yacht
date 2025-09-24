@@ -20,12 +20,18 @@ export default function OurService() {
 
             <div className="max-w-7xl mx-auto mt-10 flex flex-col lg:flex-row gap-8 px-4 sm:px-8">
                 {/* Left Image */}
-                <div className="lg:w-1/2">
+                <div className="lg:w-1/2 relative">
                     <img
                         src="./ourservices.jpg"
                         alt="our services"
                         className="w-full h-full object-cover rounded-lg shadow"
                     />
+
+                    {/* Floating Box */}
+                    <div className="absolute -bottom-3 -right-3 bg-[var(--color-primary)] text-white px-6 py-4 rounded-lg shadow-lg">
+                        <p className="text-2xl font-bold text-[var(--color-third)]">1,200+</p>
+                        <p className="text-sm">Happy Clients</p>
+                    </div>
                 </div>
 
                 {/* Right Services */}

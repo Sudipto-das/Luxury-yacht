@@ -42,7 +42,7 @@ const ProductCard = ({ image, title, size, place, time, price }: ProductProps) =
                 {/* Price + Button */}
                 <div className="flex items-center justify-between mt-3">
                     <span className="text-[var(--color-third)] font-bold">{price}</span>
-                    <button className="bg-[var(--color-third)]  hover:bg-lime-600  text-sm px-4 py-2 rounded-lg text-[var(--color-primary)]">
+                    <button className="bg-[var(--color-third)]  hover:bg-lime-600  text-sm px-4 py-2 rounded-md text-[var(--color-primary)]">
                         More Info
                     </button>
                 </div>
@@ -59,7 +59,7 @@ export default function SimilarProductCard() {
             size: 28,
             place: "Cancun, Mexico",
             time: "4 hr / 8 hrs",
-            price: "€500  4 hrs."
+            price: "€500  "
         },
         {
             image: "./boat2.jpg",
@@ -67,7 +67,7 @@ export default function SimilarProductCard() {
             size: 28,
             place: "Cancun, Mexico",
             time: "4 hr / 8 hrs",
-            price: "€500  4 hrs."
+            price: "€500  "
         },
         {
             image: "./boat3.jpg",
@@ -75,7 +75,7 @@ export default function SimilarProductCard() {
             size: 28,
             place: "Cancun, Mexico",
             time: "4 hr / 8 hrs",
-            price: "€500  4 hrs."
+            price: "€500 "
         }
     ]
 

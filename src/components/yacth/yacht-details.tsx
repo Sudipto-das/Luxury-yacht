@@ -173,13 +173,38 @@ export default function YachtDetailsComponent() {
                             </div>
                         ))}
                     </div>
-                    <button className="bg-[var(--color-secondary)] text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+                    <button className="bg-[var(--color-secondary)] text-white px-6 py-2 rounded-md hover:bg-blue-700 transition">
                         View all equipment
                     </button>
                 </section>
+                {/*service */}
+                <section>
+                    <div>
+                        <h1 className="text-xl font-bold text-[var(--color-primary)]">
+                            Service provided by Evangelos
+                        </h1>
+
+                        <div className="flex gap-1 items-center py-6">
+                            <img src="./icons/eye.png" alt="" className="w-10 h-10" />
+                            <h3 className="text-gray-800 text-sm">Skipper</h3>
+                        </div>
+
+                        {/* Button container */}
+                        <div className="flex flex-col gap-4">
+                            <button className="bg-[var(--color-secondary)] text-white px-6 py-2 rounded-md hover:bg-blue-700 transition self-start">
+                                View all equipment
+                            </button>
+
+                            <button className="bg-[var(--color-third)] text-[var(--color-primary)] font-semibold py-3 rounded-md w-full hover:bg-gray-800 transition">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
 
                 {/* Cabins */}
-                <section className="border-t pt-8 mb-10">
+                <section className="pt-8 mb-10">
                     <div className="flex items-center gap-2 mb-8">
                         <Bed className="w-6 h-6 text-gray-700" />
                         <h2 className="text-2xl font-bold text-gray-900">Cabins</h2>
@@ -213,7 +238,7 @@ export default function YachtDetailsComponent() {
                         {extras.map(({ key, name, desc, price, badge }) => (
                             <div
                                 key={key}
-                                className="flex items-center justify-between p-4 border-b border-[var(--color-primary)]"
+                                className="flex items-center justify-between p-4 border-b border-slate-300 ]"
                             >
                                 <div className="flex items-center gap-3">
                                     <input
@@ -226,7 +251,7 @@ export default function YachtDetailsComponent() {
                                         <div className="flex items-center gap-2">
                                             <span className="font-medium text-[var(--color-primary)]">{name}</span>
                                             {badge && (
-                                                <span className="bg-green-100 text-[var(--color-primary)] px-2 py-1 rounded text-xs font-medium">
+                                                <span className="bg-[var(--color-third)] text-[var(--color-primary)] px-3 py-1 rounded-full text-xs font-medium">
                                                     {badge}
                                                 </span>
                                             )}
@@ -262,7 +287,7 @@ export default function YachtDetailsComponent() {
                     </p>
                     <div className="space-y-4">
                         {charges.map((c, i) => (
-                            <div key={i} className="p-4 border-b border-[var(--color-primary)]">
+                            <div key={i} className="p-4 border-b border-slate-300 ">
                                 <div className="flex justify-between items-start mb-2">
                                     <span className="text-[var(--color-primary)] font-medium">{c.name}</span>
                                     <div className="text-right">
