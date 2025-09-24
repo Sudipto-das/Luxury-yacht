@@ -19,6 +19,7 @@ import {
     Bath,
     CheckSquare,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 // -------- DATA CONFIG -------- //
 const description = {
@@ -109,10 +110,13 @@ export default function YachtDetailsComponent() {
     const [selectedExtras, setSelectedExtras] = useState<Record<string, boolean>>(
         {}
     );
-
+    const navigate = useNavigate()
     const toggleExtra = (key: string) => {
         setSelectedExtras((prev) => ({ ...prev, [key]: !prev[key] }));
     };
+    const GotoCheckout = () => {
+        navigate('/checkout')
+    }
 
     return (
         <div className="bg-white max-w-7xl mx-auto py-10">
@@ -195,7 +199,7 @@ export default function YachtDetailsComponent() {
                                 View all equipment
                             </button>
 
-                            <button className="bg-[var(--color-third)] text-[var(--color-primary)] font-semibold py-3 rounded-md w-full hover:bg-gray-800 transition">
+                            <button onClick={GotoCheckout} className="bg-[var(--color-third)] text-[var(--color-primary)] font-semibold py-3 rounded-md w-full hover:bg-gray-800 transition">
                                 Buy Now
                             </button>
                         </div>

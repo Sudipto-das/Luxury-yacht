@@ -1,10 +1,14 @@
 import { useState } from 'react';
 import { Star, Calendar, MapPin } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 function YachtCharterBooking() {
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
-
+  const navigate = useNavigate()
+  const GotoCheckout = () => {
+    navigate('/checkout')
+}
   return (
     <div className="bg-gray-50 ">
       <div className="max-w-7xl mx-auto px-4 py-6">
@@ -155,7 +159,7 @@ function YachtCharterBooking() {
                 <div className="text-center text-gray-400 text-sm mb-4">OR</div>
 
                 {/* Book Button */}
-                <button className="w-full bg-[var(--color-third)] hover:bg-green-600 text-white font-semibold py-3 px-4 rounded-lg mb-4 transition-colors">
+                <button onClick={GotoCheckout} className="w-full bg-[var(--color-third)] hover:bg-green-600 text-white font-semibold py-3 px-4 rounded-lg mb-4 transition-colors">
                   Book
                 </button>
 

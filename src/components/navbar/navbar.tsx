@@ -1,7 +1,24 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  // Navigation handler
+  const handleNavigate = (route: string) => {
+    navigate(route);
+    setMenuOpen(false); // close mobile menu after click
+  };
+
+  // Menu items
+  const menuItems = [
+    { name: "Home", route: "/" },
+    { name: "Yachts", route: "/yachts" },
+    { name: "Services", route: "/services" },
+    { name: "About", route: "/about" },
+    { name: "Contact", route: "/contact-us" },
+  ];
 
   return (
     <div className="flex flex-col w-full">
@@ -27,18 +44,22 @@ function Navbar() {
       {/* Navbar */}
       <div className="py-4 w-full flex justify-between items-center px-4 sm:px-16">
         {/* Logo */}
-        <h1 className="font-bold text-[var(--color-primary)] text-xl">
+        <h1 className="font-bold text-[var(--color-primary)] text-xl cursor-pointer" onClick={() => handleNavigate("/")}>
           <span className="text-[var(--color-secondary)]">Luxury</span> Yachts
         </h1>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex">
           <ul className="flex gap-6 text-sm text-[var(--color-primary)]">
-            <li>Home</li>
-            <li>Yachts</li>
-            <li>Services</li>
-            <li>About</li>
-            <li>Contact</li>
+            {menuItems.map((item) => (
+              <li
+                key={item.name}
+                className="cursor-pointer hover:text-[var(--color-secondary)]"
+                onClick={() => handleNavigate(item.route)}
+              >
+                {item.name}
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -63,11 +84,15 @@ function Navbar() {
       {menuOpen && (
         <div className="md:hidden flex flex-col gap-4 px-4 pb-4 bg-white shadow">
           <ul className="flex flex-col gap-3 text-sm text-[var(--color-primary)]">
-            <li>Home</li>
-            <li>Yachts</li>
-            <li>Services</li>
-            <li>About</li>
-            <li>Contact</li>
+            {menuItems.map((item) => (
+              <li
+                key={item.name}
+                className="cursor-pointer hover:text-[var(--color-secondary)]"
+                onClick={() => handleNavigate(item.route)}
+              >
+                {item.name}
+              </li>
+            ))}
           </ul>
           <button className="flex gap-2 items-center bg-[var(--color-secondary)] px-5 py-2 rounded-md text-white w-max">
             <img src="./icons/user.png" className="h-4 w-4" alt="" />

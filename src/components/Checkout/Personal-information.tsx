@@ -1,6 +1,6 @@
 const PersonalInfoForm = () => {
   return (
-    <div className="bg-white rounded-lg shadow p-6 space-y-6 max-w-3xl mx-auto">
+    <div className="bg-white rounded-lg shadow p-6 space-y-6 max-w-4xl mx-auto">
       <h2 className="text-lg font-semibold border-b-2 border-blue-600 pb-2 text-[var(--color-primary)]">
         Personal Information
       </h2>
