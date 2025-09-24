@@ -3,7 +3,7 @@ import CardSection from "./CardSection"
 
 function Featured() {
     return (
-        <div className="py-10 bg-[var(--color-background)]">
+        <div className="py-10 bg-[var(--color-background)] p-3">
             <div className="max-w-7xl mx-auto ">
                 <div className="flex justify-between items-center pb-8">
                     <h1 className="text-[var(--color-primary)] font-bold text-2xl">Featured Yachts</h1>

@@ -116,7 +116,7 @@ export default function YachtDetailsComponent() {
 
     return (
         <div className="bg-white max-w-7xl mx-auto py-10">
-            <div className="max-w-[70%]">
+            <div className="md:max-w-[70%] p-4">
                 <p className="text-xs text-[var(--color-primary)] mb-4">
                     A boat license is not needed, even if you sail without a skipper.
                 </p>

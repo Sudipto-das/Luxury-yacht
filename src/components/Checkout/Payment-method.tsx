@@ -11,7 +11,7 @@ const PaymentMethod = () => {
   
         <h2 className="text-lg font-semibold pb-2">How would you like to pay?</h2>
   
-        <div className="flex justify-between">
+        <div className="md:flex justify-between ">
           <p className="text-sm text-gray-500 pb-4">Guaranteed safe & secured checkout</p>
           <div className="p-2 bg-slate-200 text-xs rounded-md text-center">
             Powered by <span className="font-bold">Stripe</span>

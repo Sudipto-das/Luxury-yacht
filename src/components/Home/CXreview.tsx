@@ -1,9 +1,8 @@
 import { useState } from 'react';
 
-
 function CXreview() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  
+
   const reviews = [
     {
       id: 1,
@@ -32,14 +31,14 @@ function CXreview() {
   ];
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % Math.max(1, reviews.length - 1));
+    setCurrentSlide((prev) => (prev + 1) % reviews.length);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + Math.max(1, reviews.length - 1)) % Math.max(1, reviews.length - 1));
+    setCurrentSlide((prev) => (prev - 1 + reviews.length) % reviews.length);
   };
 
-  const renderStars = (rating:any) => {
+  const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, index) => (
       <span
         key={index}
@@ -51,14 +50,15 @@ function CXreview() {
   };
 
   const getVisibleReviews = () => {
-    if (reviews.length <= 2) return reviews;
-    
-    const visible = [];
-    for (let i = 0; i < 2; i++) {
-      const index = (currentSlide + i) % reviews.length;
-      visible.push(reviews[index]);
+    if (window.innerWidth < 768) {
+      // Mobile: only 1 review
+      return [reviews[currentSlide]];
+    } else {
+      // Desktop: 2 reviews
+      const first = currentSlide % reviews.length;
+      const second = (currentSlide + 1) % reviews.length;
+      return [reviews[first], reviews[second]];
     }
-    return visible;
   };
 
   return (
@@ -77,24 +77,28 @@ function CXreview() {
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 transition-colors"
+            className="absolute left-2 sm:left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 sm:p-3 shadow-lg hover:bg-gray-50 transition-colors"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevron-left-icon lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" className="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m15 18-6-6 6-6"/>
+            </svg>
           </button>
           
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 transition-colors"
+            className="absolute right-2 sm:right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 sm:p-3 shadow-lg hover:bg-gray-50 transition-colors"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevron-right-icon lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" className="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
           </button>
 
           {/* Review Cards */}
-          <div className="flex gap-6 justify-center">
-            {getVisibleReviews().map((review, index) => (
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            {getVisibleReviews().map((review) => (
               <div
                 key={review.id}
-                className="bg-white rounded-lg p-6 max-w-lg w-full shadow-lg"
+                className="bg-white rounded-lg p-6 w-full sm:max-w-md shadow-lg"
               >
                 {/* Stars */}
                 <div className="flex gap-1 mb-4">
@@ -106,7 +110,6 @@ function CXreview() {
                   <span className="font-semibold text-gray-800 text-lg">
                     {review.name}
                   </span>
-                  
                 </div>
                 
                 {/* Review Text */}
@@ -120,7 +123,7 @@ function CXreview() {
 
         {/* Pagination Dots */}
         <div className="flex justify-center gap-2 mt-8">
-          {Array.from({ length: Math.max(1, reviews.length - 1) }, (_, index) => (
+          {Array.from({ length: reviews.length }, (_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
